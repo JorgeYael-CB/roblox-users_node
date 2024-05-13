@@ -41,14 +41,14 @@ export class Server{
 
         //* 404
         this.app.use(function(req, res, next) {
-            res.status(404).send('Sorry cant find that!');
+            res.status(404).json({error: 'Url not found'});
         });
     };
 
 
     public start(){
         this.app.listen(this.port, () => {
-            console.log(`http://localhost:${this.port}/`);
+            console.log(`server running on port: ${this.port}`);
         })
     };
 };
